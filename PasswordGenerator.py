@@ -55,7 +55,6 @@ while unwanted:
         continue
 
 scan = True
-again = False
 while scan:
     if alphanum:
         to_use = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b',
@@ -64,18 +63,21 @@ while scan:
                   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
                   'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
                   'Y', 'Z']
+        alphanum = False  # don't need to reiterate this block
     if addition:
         non_eng = []
         non_eng[:0] = input("Enter the wanted non-English characters.\n")
         to_use += non_eng
+        addition = False  # don't need to reiterate this block
     if unwanted:
+        again = False  # in case 
         notpossible = []
         notpossible[:0] = input("Enter unwanted elements from the below list:\n\
     {}\n".format(to_use))  # unwanted ones
-        for locn, value in enumerate(notpossible):
+        for value in notpossible:
             try:
                 to_use.index("{}".format(value))
-            except:
+            except ValueError:
                 print(value+" is not in the string that was provided.\
     Please enter the unwanted values again.")
                 again = True
