@@ -42,9 +42,8 @@ while addition:
 
 unwanted = True
 while unwanted:
-    print(to_use)
-    reply = input("Are there any unwanted characters from the above list?\
-(y/n)\n")
+    reply = input("\n{}\nAre there any unwanted characters from the above list?\
+(y/n)\n".format("".join(to_use)))
     if reply=='y':
         break
     elif reply=='n':
@@ -73,7 +72,7 @@ while scan:
         again = False  # in case 
         notpossible = []
         notpossible[:0] = input("Enter unwanted elements from the below list:\n\
-    {}\n".format(to_use))  # unwanted ones
+{}\n".format("".join(to_use)))  # unwanted ones
         for value in notpossible:
             try:
                 to_use.index("{}".format(value))
