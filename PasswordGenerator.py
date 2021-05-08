@@ -14,10 +14,13 @@ length = int(input("Length of the password to be generator? "))
 password = ""
 to_use = []
 to_use[:0] = string.printable  # lots of characters here
-notinclude = "^`~ "
+
+notinclude = "^`~"  # strictly not wanted
 for val in notinclude:
     to_use.remove(val)
 
+for i in range(6):  # to get rid of the white spaces
+    to_use.pop()  # user can manually type them if wanted
 
 alphanum = True
 while alphanum:
