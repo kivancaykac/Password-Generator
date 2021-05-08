@@ -14,6 +14,10 @@ length = int(input("Length of the password to be generator? "))
 password = ""
 to_use = []
 to_use[:0] = string.printable  # lots of characters here
+notinclude = "^`~ "
+for val in notinclude:
+    to_use.remove(val)
+
 
 alphanum = True
 while alphanum:
@@ -42,7 +46,7 @@ while addition:
 
 unwanted = True
 while unwanted:
-    reply = input("\n{}\nAre there any unwanted characters from the above list?\
+    reply = input("{}\nAre there any unwanted characters from the above list?\
 (y/n)\n".format("".join(to_use)))
     if reply=='y':
         break
@@ -55,6 +59,7 @@ while unwanted:
 
 scan = True
 while scan:
+    again = False  # in case 
     if alphanum:
         to_use = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b',
                   'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
@@ -69,7 +74,6 @@ while scan:
         to_use += non_eng
         addition = False  # don't need to reiterate this block
     if unwanted:
-        again = False  # in case 
         notpossible = []
         notpossible[:0] = input("Enter unwanted elements from the below list:\n\
 {}\n".format("".join(to_use)))  # unwanted ones
