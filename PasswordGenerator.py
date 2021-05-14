@@ -22,8 +22,21 @@ for val in notinclude:
 for i in range(6):  # to get rid of the white spaces
     to_use.pop()  # user can manually type them if wanted
 
+numeric = True
+while numeric:
+    reply = input("Do you want only numeric characters?(y/n)\n")
+    if reply=='y':
+        to_use = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        break
+    elif reply=='n':
+        numeric = False
+        break
+    else:
+        print("Please enter either 'y' or 'n'.")
+        continue
+
 alphanum = True
-while alphanum:
+while alphanum and not numeric:
     reply = input("Do you want only alpha-numeric characters?(y/n)\n")
     if reply=='y':
         to_use = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b',
@@ -69,6 +82,8 @@ while unwanted:
 scan = True
 while scan:
     again = False  # in case 
+    if numeric:
+        numeric = False
     if alphanum:
         alphanum = False  # don't need to reiterate this block
     if addition:
