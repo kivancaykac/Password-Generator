@@ -113,4 +113,4 @@ while scan:
 for i in range(length):
     password += random.choice(to_use)
 
-print("The random password generated:\n{}".format(password))
+print("\nThe random password generated:\n{}".format(password))
